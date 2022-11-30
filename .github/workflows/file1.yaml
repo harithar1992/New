@@ -3,7 +3,7 @@ name: artifact
 on: [push]
 
 env:
-  FILE_NAME: hello-server
+  ARTIFACT_NAME: my-artifact
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     - name: Upload artifact for linux
       uses: actions/upload-artifact@v1
       with:
-        name: linux
-        path: ./${{ env.FILE_NAME }}
+        name: ${{ env.ARTIFACT_NAME }}
+        path: .
 
     
