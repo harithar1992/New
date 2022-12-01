@@ -1,0 +1,23 @@
+name: python script
+
+on: [push]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: print('Hello, world!')
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   needs: [test]
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/upload-artifact@v1
+  with:
+    name: my-artifact
+    path: /home
